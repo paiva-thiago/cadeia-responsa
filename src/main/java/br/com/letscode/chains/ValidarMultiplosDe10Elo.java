@@ -1,6 +1,6 @@
 package br.com.letscode.chains;
 
-public class NotaDe50Elo implements CaixaChain {
+public class ValidarMultiplosDe10Elo implements CaixaChain {
 
 	private CaixaChain chain;
 	
@@ -18,13 +18,8 @@ public class NotaDe50Elo implements CaixaChain {
 
 	@Override
 	public void obter(GranaDoCaixa cur) {
-		if(cur.getGrana() >= 50){
-			int num = cur.getGrana()/50;
-			int restante = cur.getGrana() % 50;
-			System.out.println("Temos  "+num+" notas de R$50");
-			if(restante !=0){
-				this.executeNext(new GranaDoCaixa(restante));
-			} 
+		if(cur.getGrana() % 10 != 0){
+			System.out.println("Valor deve ser Múltiplo de 10!");
 		}else{
 			this.executeNext(cur);
 		}

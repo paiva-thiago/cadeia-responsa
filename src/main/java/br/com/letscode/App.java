@@ -5,18 +5,16 @@ import java.util.Scanner;
 
 public class App 
 {
-    private static CaixaEletronico caixa24Horas = new CaixaEletronico();
+    private static CaixaEletronico caixa24Horas;
 
     public static void main( String[] args )
     {
+        caixa24Horas=new CaixaEletronico();
         int iValorObter = 0;
 		System.out.println("Digite o valor em Reais!");
 		Scanner input = new Scanner(System.in);
 		iValorObter = input.nextInt();
-		if (iValorObter % 10 != 0) {
-			System.out.println("Valor deve ser Múltiplo de 10!");
-		}else{
-            caixa24Horas.getPrimeiroElo().obter(new GranaDoCaixa(iValorObter) );
-        }
+		caixa24Horas.getPrimeiroElo().obter(new GranaDoCaixa(iValorObter) );        
+        input.close();
     }
 }

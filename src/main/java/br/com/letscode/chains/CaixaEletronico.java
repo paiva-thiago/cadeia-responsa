@@ -4,13 +4,14 @@ public class CaixaEletronico {
     private CaixaChain primeiroElo;
 
     public CaixaEletronico(){
-        this.primeiroElo = new NotaDe50Elo();
-		CaixaChain segundoElo = new NotaDe20Elo();
-		CaixaChain terceiroElo = new NotaDe10Elo();
+        this.primeiroElo = new ValidarMultiplosDe10Elo();
+		CaixaChain segundoElo = new NotaDe50Elo();
+		CaixaChain terceiroElo = new NotaDe20Elo();
+		CaixaChain quartoElo = new NotaDe10Elo();
 
-		// set the chain of responsibility
 		primeiroElo.setNextChain(segundoElo);
 		segundoElo.setNextChain(terceiroElo);
+        terceiroElo.setNextChain(quartoElo);
     }
 
     public CaixaChain getPrimeiroElo(){
